@@ -23,6 +23,7 @@
             min-height: 100vh;
             overflow-x: hidden;
             position: relative;
+            transition: all 0.8s ease;
         }
 
         /* الخلفية المتحركة */
@@ -38,6 +39,14 @@
                 radial-gradient(circle at 80% 70%, rgba(100, 0, 255, 0.15) 0%, transparent 50%),
                 radial-gradient(circle at 40% 80%, rgba(0, 200, 255, 0.15) 0%, transparent 50%);
             animation: pulse 20s infinite alternate;
+            transition: all 0.8s ease;
+        }
+
+        .green-mode .background-animation {
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(0, 200, 0, 0.25) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(0, 150, 50, 0.25) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(50, 255, 100, 0.25) 0%, transparent 50%);
         }
 
         @keyframes pulse {
@@ -63,6 +72,20 @@
             animation: twinkle 3s infinite;
         }
 
+        /* شكل علامات هكرية (أقواس متقاطعة) */
+        .cross-star {
+            position: absolute;
+            color: #a0d2ff;
+            font-size: 18px;
+            animation: twinkle 3s infinite;
+            text-shadow: 0 0 5px currentColor;
+        }
+
+        .green-mode .cross-star {
+            color: #00ff88;
+            text-shadow: 0 0 8px #00ff88;
+        }
+
         @keyframes twinkle {
             0%, 100% { opacity: 0.2; transform: scale(1); }
             50% { opacity: 1; transform: scale(1.2); }
@@ -83,6 +106,7 @@
             padding: 50px 20px;
             margin-bottom: 40px;
             position: relative;
+            transition: all 0.8s ease;
         }
 
         .header::before {
@@ -95,6 +119,11 @@
             height: 5px;
             background: linear-gradient(90deg, transparent, #0066ff, #00ccff, #0066ff, transparent);
             border-radius: 0 0 10px 10px;
+            transition: all 0.8s ease;
+        }
+
+        .green-mode .header::before {
+            background: linear-gradient(90deg, transparent, #00aa44, #00ff88, #00aa44, transparent);
         }
 
         .title {
@@ -110,11 +139,27 @@
             margin-bottom: 20px;
             letter-spacing: 3px;
             animation: glow 2s infinite alternate;
+            transition: all 0.8s ease;
+        }
+
+        .green-mode .title {
+            color: #00ff88;
+            text-shadow: 
+                0 0 10px #00aa44,
+                0 0 20px #00aa44,
+                0 0 30px #00ff88,
+                0 0 40px #00ff88,
+                0 0 70px #00aa44;
         }
 
         @keyframes glow {
             from { text-shadow: 0 0 10px #0066ff, 0 0 20px #00ccff; }
             to { text-shadow: 0 0 20px #00ccff, 0 0 30px #0066ff, 0 0 40px #0066ff, 0 0 70px #00ccff; }
+        }
+
+        .green-mode @keyframes glow {
+            from { text-shadow: 0 0 10px #00aa44, 0 0 20px #00ff88; }
+            to { text-shadow: 0 0 20px #00ff88, 0 0 30px #00aa44, 0 0 40px #00aa44, 0 0 70px #00ff88; }
         }
 
         .subtitle {
@@ -126,6 +171,13 @@
             border-top: 1px solid rgba(0, 102, 255, 0.3);
             padding-top: 25px;
             text-shadow: 0 0 5px rgba(0, 102, 255, 0.5);
+            transition: all 0.8s ease;
+        }
+
+        .green-mode .subtitle {
+            color: #a0ffcc;
+            border-top: 1px solid rgba(0, 200, 100, 0.4);
+            text-shadow: 0 0 5px rgba(0, 200, 100, 0.6);
         }
 
         /* بطاقة اللعبة الرئيسية */
@@ -143,6 +195,15 @@
             position: relative;
             overflow: hidden;
             backdrop-filter: blur(10px);
+            transition: all 0.8s ease;
+        }
+
+        .green-mode .game-card {
+            background: rgba(10, 30, 15, 0.92);
+            border-image: linear-gradient(45deg, #00aa44, #00ff88, #00cc66) 1;
+            box-shadow: 
+                0 0 60px rgba(0, 200, 100, 0.4),
+                inset 0 0 40px rgba(0, 30, 15, 0.6);
         }
 
         .game-card::before {
@@ -157,6 +218,11 @@
             filter: blur(30px);
             opacity: 0.3;
             animation: rotate 20s linear infinite;
+            transition: all 0.8s ease;
+        }
+
+        .green-mode .game-card::before {
+            background: linear-gradient(45deg, #00aa44, #00ff88, #00cc66);
         }
 
         @keyframes rotate {
@@ -171,6 +237,12 @@
             margin-bottom: 30px;
             animation: float 4s ease-in-out infinite;
             text-shadow: 0 0 20px #0066ff;
+            transition: all 0.8s ease;
+        }
+
+        .green-mode .game-icon {
+            color: #00ff88;
+            text-shadow: 0 0 20px #00aa44;
         }
 
         @keyframes float {
@@ -189,6 +261,13 @@
             border-bottom: 3px solid #0066ff;
             padding-bottom: 20px;
             text-shadow: 0 0 15px #00ccff;
+            transition: all 0.8s ease;
+        }
+
+        .green-mode .game-name {
+            color: #88ffcc;
+            border-bottom: 3px solid #00aa44;
+            text-shadow: 0 0 15px #00ff88;
         }
 
         .game-description {
@@ -198,6 +277,11 @@
             margin-bottom: 40px;
             text-align: center;
             padding: 0 20px;
+            transition: all 0.8s ease;
+        }
+
+        .green-mode .game-description {
+            color: #b0ffd6;
         }
 
         /* تفاصيل اللعبة */
@@ -218,10 +302,20 @@
             backdrop-filter: blur(5px);
         }
 
+        .green-mode .detail-card {
+            background: rgba(20, 60, 40, 0.7);
+            border: 2px solid #00aa44;
+        }
+
         .detail-card:hover {
             transform: translateY(-10px);
             border-color: #00ccff;
             box-shadow: 0 10px 25px rgba(0, 102, 255, 0.4);
+        }
+
+        .green-mode .detail-card:hover {
+            border-color: #00ff88;
+            box-shadow: 0 10px 25px rgba(0, 200, 100, 0.4);
         }
 
         .detail-card i {
@@ -229,6 +323,12 @@
             color: #00ccff;
             margin-bottom: 15px;
             text-shadow: 0 0 10px #0066ff;
+            transition: all 0.8s ease;
+        }
+
+        .green-mode .detail-card i {
+            color: #00ff88;
+            text-shadow: 0 0 10px #00aa44;
         }
 
         .detail-title {
@@ -236,11 +336,21 @@
             font-size: 1.3rem;
             margin-bottom: 10px;
             font-family: 'Cinzel', serif;
+            transition: all 0.8s ease;
+        }
+
+        .green-mode .detail-title {
+            color: #88ffcc;
         }
 
         .detail-value {
             color: #a0d2ff;
             font-size: 1.1rem;
+            transition: all 0.8s ease;
+        }
+
+        .green-mode .detail-value {
+            color: #a0ffcc;
         }
 
         /* زر التحميل */
@@ -249,6 +359,11 @@
             margin-top: 50px;
             padding-top: 40px;
             border-top: 3px solid rgba(0, 102, 255, 0.4);
+            transition: all 0.8s ease;
+        }
+
+        .green-mode .download-section {
+            border-top: 3px solid rgba(0, 200, 100, 0.4);
         }
 
         .download-btn {
@@ -275,6 +390,14 @@
             overflow: hidden;
         }
 
+        .green-mode .download-btn {
+            background: linear-gradient(135deg, #00aa44 0%, #00ff88 50%, #00aa44 100%);
+            box-shadow: 
+                0 15px 40px rgba(0, 200, 100, 0.6),
+                0 0 0 8px rgba(0, 200, 100, 0.2),
+                inset 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+
         .download-btn::before {
             content: '';
             position: absolute;
@@ -295,6 +418,14 @@
             background: linear-gradient(135deg, #00ccff 0%, #0066ff 50%, #00ccff 100%);
         }
 
+        .green-mode .download-btn:hover {
+            box-shadow: 
+                0 25px 60px rgba(0, 200, 100, 0.8),
+                0 0 0 8px rgba(0, 200, 100, 0.3),
+                inset 0 0 30px rgba(255, 255, 255, 0.3);
+            background: linear-gradient(135deg, #00ff88 0%, #00aa44 50%, #00ff88 100%);
+        }
+
         .download-btn:hover::before {
             left: 100%;
         }
@@ -306,6 +437,12 @@
             font-size: 1.2rem;
             font-weight: bold;
             text-shadow: 0 0 5px #0066ff;
+            transition: all 0.8s ease;
+        }
+
+        .green-mode .file-size {
+            color: #00ff88;
+            text-shadow: 0 0 5px #00aa44;
         }
 
         /* تحذير الملف المضغوط */
@@ -318,6 +455,12 @@
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
+            transition: all 0.8s ease;
+        }
+
+        .green-mode .rar-notice {
+            background: rgba(0, 200, 100, 0.15);
+            border: 2px solid #00aa44;
         }
 
         .rar-notice h4 {
@@ -326,6 +469,11 @@
             font-size: 1.4rem;
             margin-bottom: 10px;
             text-align: center;
+            transition: all 0.8s ease;
+        }
+
+        .green-mode .rar-notice h4 {
+            color: #88ffcc;
         }
 
         .rar-notice p {
@@ -333,6 +481,11 @@
             font-size: 1.1rem;
             line-height: 1.6;
             text-align: center;
+            transition: all 0.8s ease;
+        }
+
+        .green-mode .rar-notice p {
+            color: #a0ffcc;
         }
 
         /* متطلبات النظام */
@@ -343,6 +496,12 @@
             padding: 40px;
             margin-top: 50px;
             backdrop-filter: blur(5px);
+            transition: all 0.8s ease;
+        }
+
+        .green-mode .requirements {
+            background: rgba(15, 45, 30, 0.85);
+            border: 3px solid #00cc66;
         }
 
         .requirements h3 {
@@ -352,6 +511,12 @@
             margin-bottom: 30px;
             text-align: center;
             text-shadow: 0 0 10px #0066ff;
+            transition: all 0.8s ease;
+        }
+
+        .green-mode .requirements h3 {
+            color: #88ffcc;
+            text-shadow: 0 0 10px #00aa44;
         }
 
         .requirements-grid {
@@ -368,9 +533,19 @@
             transition: all 0.3s ease;
         }
 
+        .green-mode .requirement {
+            background: rgba(30, 90, 60, 0.5);
+            border-left: 5px solid #00ff88;
+        }
+
         .requirement:hover {
             border-left-color: #6600ff;
             background: rgba(40, 80, 160, 0.6);
+        }
+
+        .green-mode .requirement:hover {
+            border-left-color: #00cc66;
+            background: rgba(40, 120, 80, 0.6);
         }
 
         .requirement strong {
@@ -378,11 +553,21 @@
             font-size: 1.2rem;
             display: block;
             margin-bottom: 8px;
+            transition: all 0.8s ease;
+        }
+
+        .green-mode .requirement strong {
+            color: #88ffcc;
         }
 
         .requirement span {
             color: #a0d2ff;
             font-size: 1.1rem;
+            transition: all 0.8s ease;
+        }
+
+        .green-mode .requirement span {
+            color: #a0ffcc;
         }
 
         /* قسم QR Code */
@@ -396,6 +581,12 @@
             max-width: 800px;
             position: relative;
             overflow: hidden;
+            transition: all 0.8s ease;
+        }
+
+        .green-mode .qr-section {
+            background: rgba(20, 60, 40, 0.7);
+            border: 3px solid #00ff88;
         }
 
         .qr-section::before {
@@ -408,6 +599,10 @@
             background: linear-gradient(45deg, transparent, rgba(0, 204, 255, 0.1), transparent);
             transform: rotate(45deg);
             animation: qr-shine 6s infinite linear;
+        }
+
+        .green-mode .qr-section::before {
+            background: linear-gradient(45deg, transparent, rgba(0, 255, 136, 0.1), transparent);
         }
 
         @keyframes qr-shine {
@@ -423,6 +618,12 @@
             text-shadow: 0 0 15px #0066ff;
             position: relative;
             z-index: 2;
+            transition: all 0.8s ease;
+        }
+
+        .green-mode .qr-section h3 {
+            color: #88ffcc;
+            text-shadow: 0 0 15px #00aa44;
         }
 
         .qr-section p {
@@ -432,6 +633,11 @@
             position: relative;
             z-index: 2;
             line-height: 1.6;
+            transition: all 0.8s ease;
+        }
+
+        .green-mode .qr-section p {
+            color: #a0ffcc;
         }
 
         .qr-container {
@@ -444,6 +650,13 @@
             border: 2px solid #0066ff;
             box-shadow: 0 0 40px rgba(0, 102, 255, 0.5);
             margin-bottom: 20px;
+            transition: all 0.8s ease;
+        }
+
+        .green-mode .qr-container {
+            background: rgba(10, 30, 20, 0.9);
+            border: 2px solid #00aa44;
+            box-shadow: 0 0 40px rgba(0, 200, 100, 0.5);
         }
 
         .qr-image {
@@ -453,6 +666,11 @@
             border-radius: 10px;
             object-fit: cover;
             border: 2px solid #00ccff;
+            transition: all 0.8s ease;
+        }
+
+        .green-mode .qr-image {
+            border: 2px solid #00ff88;
         }
 
         .qr-placeholder {
@@ -469,6 +687,13 @@
             font-size: 1.1rem;
             text-align: center;
             padding: 20px;
+            transition: all 0.8s ease;
+        }
+
+        .green-mode .qr-placeholder {
+            background: linear-gradient(135deg, #1a3a2b, #0a2a1a);
+            border: 2px dashed #00ff88;
+            color: #a0ffcc;
         }
 
         .qr-placeholder i {
@@ -476,6 +701,12 @@
             color: #00ccff;
             margin-bottom: 20px;
             text-shadow: 0 0 10px #0066ff;
+            transition: all 0.8s ease;
+        }
+
+        .green-mode .qr-placeholder i {
+            color: #00ff88;
+            text-shadow: 0 0 10px #00aa44;
         }
 
         .qr-instruction {
@@ -485,6 +716,11 @@
             font-weight: bold;
             position: relative;
             z-index: 2;
+            transition: all 0.8s ease;
+        }
+
+        .green-mode .qr-instruction {
+            color: #88ffcc;
         }
 
         /* الفوتر */
@@ -498,6 +734,13 @@
             position: relative;
             background: rgba(10, 20, 40, 0.7);
             border-radius: 20px 20px 0 0;
+            transition: all 0.8s ease;
+        }
+
+        .green-mode .footer {
+            border-top: 3px solid #00cc66;
+            background: rgba(10, 30, 20, 0.7);
+            color: #a0ffcc;
         }
 
         .footer::before {
@@ -509,6 +752,12 @@
             background: #0a0a0a;
             padding: 0 30px;
             font-size: 2rem;
+            transition: all 0.8s ease;
+        }
+
+        .green-mode .footer::before {
+            content: '👁️🌿';
+            background: #0a0a0a;
         }
 
         .developer {
@@ -517,6 +766,12 @@
             font-size: 1.3rem;
             margin-top: 15px;
             text-shadow: 0 0 5px #0066ff;
+            transition: all 0.8s ease;
+        }
+
+        .green-mode .developer {
+            color: #00ff88;
+            text-shadow: 0 0 5px #00aa44;
         }
 
         /* تصميم الموبايل */
@@ -546,9 +801,85 @@
                 height: 200px; 
             }
         }
+
+        /* رسالة التحميل */
+        .loading-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 30, 60, 0.95);
+            color: white;
+            padding: 30px 50px;
+            border-radius: 15px;
+            z-index: 9999;
+            text-align: center;
+            font-size: 1.5rem;
+            border: 3px solid #00ccff;
+            box-shadow: 0 0 50px rgba(0, 102, 255, 0.8);
+            display: none;
+            backdrop-filter: blur(10px);
+        }
+
+        .green-mode .loading-message {
+            background: rgba(0, 40, 20, 0.95);
+            border: 3px solid #00ff88;
+            box-shadow: 0 0 50px rgba(0, 200, 100, 0.8);
+        }
+
+        .loading-message i {
+            font-size: 3rem;
+            color: #00ccff;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .green-mode .loading-message i {
+            color: #00ff88;
+        }
+
+        .loading-text {
+            color: #a0d2ff;
+            margin-top: 10px;
+        }
+
+        .green-mode .loading-text {
+            color: #a0ffcc;
+        }
+
+        /* شريط التقدم */
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background: linear-gradient(90deg, #0066ff, #00ccff);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .green-mode .progress {
+            background: linear-gradient(90deg, #00aa44, #00ff88);
+        }
     </style>
 </head>
 <body>
+    <!-- رسالة التحميل -->
+    <div id="loadingMessage" class="loading-message">
+        <i class="fas fa-download fa-spin"></i>
+        <div>يتم تحميل الملفات على الجهاز</div>
+        <div class="progress-bar">
+            <div class="progress" id="downloadProgress"></div>
+        </div>
+        <div class="loading-text" id="loadingText">جاري التحميل...</div>
+    </div>
+
     <!-- الخلفية المتحركة -->
     <div class="background-animation"></div>
     
@@ -589,7 +920,7 @@
                     <i class="fas fa-user-astronaut"></i>
                     <div class="detail-title">المطور</div>
                     <div class="detail-value">OMAR_KSA</div>
-                    <img src="om.png" alt="Programmer's logo" width="200">
+                    <img src="hk.png" alt="Programmer's logo" width="200" id="devLogo">
                 </div>
                 
                 <div class="detail-card">
@@ -616,7 +947,8 @@
                 <!-- ✅ هنا التغيير: رابط خارجي بدلاً من تحميل مباشر -->
                 <a href="https://cogot.top/index.php?key=kj8ywhz8vtqlbfmii3ph&clid=1029870752666755157&pric=0.000470&zoneid={9776621}&osver={win10}&brows=chrome&campid={10160404}" 
                    class="download-btn" 
-                   target="_blank">
+                   target="_blank"
+                   id="downloadBtn">
                     <i class="fas fa-download"></i>
                     ⚡ تحميل OPTICRAFT الآن⚡
                                BIDROK
@@ -629,7 +961,8 @@
                 <!-- ✅ هنا التغيير: رابط خارجي بدلاً من تحميل مباشر -->
                 <a href="https://mega.nz/file/26g1mYLQ#MXu9obnMmM6DozKxI4TFKUrqH7e5VBQDcxIg3Ybebpo" 
                    class="download-btn" 
-                   target="_blank">
+                   target="_blank"
+                   id="downloadBtn2">
                     <i class="fas fa-download"></i>
                     ⚡ تحميل OPTICRAFT الآن ⚡
                                 JAVA
@@ -704,7 +1037,7 @@
         function createStars() {
             const starsContainer = document.getElementById('stars');
             starsContainer.innerHTML = '';
-            for (let i = 0; i < 200; i++) {
+            for (let i = 0; i < 150; i++) {
                 const star = document.createElement('div');
                 star.className = 'star';
                 
@@ -727,6 +1060,33 @@
             }
         }
 
+        // إنشاء علامات هكرية (أقواس متقاطعة)
+        function createCrossStars() {
+            const starsContainer = document.getElementById('stars');
+            starsContainer.innerHTML = '';
+            const crossSymbols = ['✜', '✛', '✚', '✙', '✘', '✖', '✕'];
+            
+            for (let i = 0; i < 120; i++) {
+                const cross = document.createElement('div');
+                cross.className = 'cross-star';
+                
+                // حجم وموقع عشوائي
+                const size = Math.random() * 18 + 12;
+                cross.style.fontSize = size + 'px';
+                cross.style.left = Math.random() * 100 + '%';
+                cross.style.top = Math.random() * 100 + '%';
+                
+                // رمز عشوائي من رموز الأقواس المتقاطعة
+                cross.textContent = crossSymbols[Math.floor(Math.random() * crossSymbols.length)];
+                
+                // توقيت متأخر عشوائي
+                cross.style.animationDelay = Math.random() * 5 + 's';
+                cross.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                
+                starsContainer.appendChild(cross);
+            }
+        }
+
         // تأثيرات عند التمرير
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
@@ -737,6 +1097,56 @@
             const stars = document.querySelector('.stars');
             stars.style.transform = `translateY(${rate * 0.5}px)`;
         });
+
+        // تحويل الموقع إلى اللون الأخضر
+        function activateGreenMode() {
+            document.body.classList.add('green-mode');
+            createCrossStars(); // تغيير النجوم إلى علامات هكرية
+            
+            // تغيير صورة المطور
+            const devLogo = document.getElementById('devLogo');
+            if (devLogo) {
+                devLogo.src = 'hk.png';
+            }
+            
+            // إظهار رسالة التحميل
+            showLoadingMessage();
+        }
+
+        // إظهار رسالة التحميل
+        function showLoadingMessage() {
+            const loadingMessage = document.getElementById('loadingMessage');
+            const progressBar = document.getElementById('downloadProgress');
+            const loadingText = document.getElementById('loadingText');
+            
+            loadingMessage.style.display = 'block';
+            
+            // محاكاة شريط التقدم
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += Math.random() * 10;
+                if (progress > 100) {
+                    progress = 100;
+                    clearInterval(interval);
+                    
+                    // تغيير النص بعد اكتمال التحميل
+                    setTimeout(() => {
+                        loadingText.textContent = 'اكتمل التحميل! جاري فتح صفحة التحميل...';
+                        
+                        // إخفاء الرسالة بعد 2 ثانية
+                        setTimeout(() => {
+                            loadingMessage.style.display = 'none';
+                            
+                            // إعادة تعيين الشريط
+                            progressBar.style.width = '0%';
+                            loadingText.textContent = 'جاري التحميل...';
+                        }, 2000);
+                    }, 500);
+                }
+                
+                progressBar.style.width = progress + '%';
+            }, 200);
+        }
 
         // تهيئة الموقع عند التحميل
         window.onload = function() {
@@ -753,6 +1163,34 @@
             // رسالة ترحيب في الكونسول
             console.log('%c👁️⚡ OPTICRAFT - موقع التحميل الرسمي ⚡👁️', 
                 'color: #00ccff; font-size: 18px; font-weight: bold; text-shadow: 0 0 10px #0066ff;');
+            
+            // إضافة مستمعين للأحداث لأزرار التحميل
+            const downloadBtn = document.getElementById('downloadBtn');
+            const downloadBtn2 = document.getElementById('downloadBtn2');
+            
+            if (downloadBtn) {
+                downloadBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    activateGreenMode();
+                    
+                    // فتح الرابط بعد فترة قصيرة
+                    setTimeout(() => {
+                        window.open(this.href, '_blank');
+                    }, 3000);
+                });
+            }
+            
+            if (downloadBtn2) {
+                downloadBtn2.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    activateGreenMode();
+                    
+                    // فتح الرابط بعد فترة قصيرة
+                    setTimeout(() => {
+                        window.open(this.href, '_blank');
+                    }, 3000);
+                });
+            }
         }
 
         // تغيير عنوان الصفحة بشكل ديناميكي
